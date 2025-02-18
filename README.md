@@ -54,3 +54,203 @@ Any additional packages necessary for the app to run
 Generate the full contents of the app.py, index.html, script.js, and locations.geojson files based on these details, and list the required pip packages for the project.
 
 ------
+#Task 2
+Take the code below and develop a backend script (python) to save the parameters to a local config file (any type).
+------
+```html
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Soft UI - Sliders & Parameters</title>
+    <style>
+        /* Global Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f9f9f9;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 40px;
+        }
+        h2 {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Input Container */
+        .container {
+            background: linear-gradient(135deg, #ffffff, #f3f3f3);
+            padding: 20px;
+            margin: 15px auto;
+            width: 60%;
+            border-radius: 12px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        label {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #666;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Inputs Styling */
+        input, select {
+            width: 80%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 2px solid #ff9a9e;
+            background-color: #fff;
+            color: #333;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s ease;
+            box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        input:hover, select:hover {
+            border-color: #fa709a;
+            box-shadow: 0 0 10px rgba(255, 154, 158, 0.3);
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #fa709a;
+        }
+
+        /* Slider Styling */
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 80%;
+            height: 8px;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+            outline: none;
+            transition: background 0.3s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid #fa709a;
+            cursor: pointer;
+        }
+
+        /* Button Styling */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            color: #fff;
+            font-size: 1rem;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 3px 3px 10px rgba(255, 154, 158, 0.3);
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #fa709a, #ff9a9e);
+            box-shadow: 0 0 15px rgba(255, 154, 158, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+
+<h2>Soft UI - Interactive Sliders & Parameters</h2>
+
+<!-- Range Slider -->
+<div class="container">
+    <label for="rangeSlider">Range Slider (0-100):</label>
+    <input type="range" id="rangeSlider" min="0" max="100" value="50" oninput="updateValue('rangeValue', this.value)">
+    <span id="rangeValue">50</span>
+</div>
+
+<!-- Dropdown Selector -->
+<div class="container">
+    <label for="dropdownSelector">Dropdown Selector:</label>
+    <select id="dropdownSelector" onchange="updateValue('dropdownValue', this.value)">
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 3">Option 3</option>
+    </select>
+    <span id="dropdownValue">Option 1</span>
+</div>
+
+<!-- Checkbox Toggle -->
+<div class="container">
+    <label for="toggleCheckbox">Checkbox Toggle:</label>
+    <input type="checkbox" id="toggleCheckbox" onchange="updateValue('checkboxValue', this.checked ? 'Checked' : 'Unchecked')">
+    <span id="checkboxValue">Unchecked</span>
+</div>
+
+<!-- Text Input -->
+<div class="container">
+    <label for="textInput">Text Input:</label>
+    <input type="text" id="textInput" placeholder="Enter text..." oninput="updateValue('textValue', this.value)">
+    <span id="textValue"></span>
+</div>
+
+<!-- Number Input -->
+<div class="container">
+    <label for="numberInput">Number Input (0-50):</label>
+    <input type="number" id="numberInput" min="0" max="50" value="25" oninput="updateValue('numberValue', this.value)">
+    <span id="numberValue">25</span>
+</div>
+
+<!-- Centered Buttons -->
+<div class="button-container">
+    <button onclick="resetFields()">Reset</button>
+    <button onclick="submitForm()">Submit</button>
+</div>
+
+<script>
+    function updateValue(id, value) {
+        document.getElementById(id).innerText = value;
+    }
+
+    function resetFields() {
+        document.getElementById('rangeSlider').value = 50;
+        document.getElementById('dropdownSelector').value = "Option 1";
+        document.getElementById('toggleCheckbox').checked = false;
+        document.getElementById('textInput').value = "";
+        document.getElementById('numberInput').value = 25;
+
+        updateValue('rangeValue', 50);
+        updateValue('dropdownValue', "Option 1");
+        updateValue('checkboxValue', "Unchecked");
+        updateValue('textValue', "");
+        updateValue('numberValue', 25);
+    }
+
+    function submitForm() {
+        alert("Form Submitted! 🎉");
+    }
+</script>
+
+</body>
+</html>
+```
+
+
