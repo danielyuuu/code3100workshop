@@ -1,6 +1,6 @@
 #Task 1
 Use this prompt to generate files for a Live Bus tracker App.
-
+---------
 Build a Flask-based web dashboard that displays live bus locations using the Transport NSW API and Mapbox. The dashboard should visualize the live bus locations as a heatmap on the map, with live data being fetched and updated every 4 seconds.
 
 The project structure is as follows:
@@ -53,3 +53,4 @@ Any additional packages necessary for the app to run
 
 Generate the full contents of the app.py, index.html, script.js, and locations.geojson files based on these details, and list the required pip packages for the project.
 
+------
