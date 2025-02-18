@@ -260,8 +260,12 @@ Take the code below and develop a backend script (python) to save the parameters
 ```
 ------
 # Task 3
-Develop a dynamic visualisation page to view the 3D file (stl) below)
+Develop a dynamic visualisation page to view the 3D file (stl) below
 ------
 Shoei Yoh, Oguni Bus Station - https://github.com/danielyuuu/code3100workshop/blob/main/bus-station_cleaned_90radius_rev02.stl
+
+NOTES:
+- Use ThreeJS as the viewer
+- Split scripts into seperate files
 
 
