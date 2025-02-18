@@ -1,3 +1,9 @@
+![Prompt Slides](https://github.com/danielyuuu/code3100workshop/blob/main/Prompt_slide1.jpeg)
+![Prompt Slides](https://github.com/danielyuuu/code3100workshop/blob/main/Prompt_slide2.jpeg)
+![Prompt Slides](https://github.com/danielyuuu/code3100workshop/blob/main/Prompt_slide3.jpeg)
+![Prompt Slides](https://github.com/danielyuuu/code3100workshop/blob/main/Prompt_slide4.jpeg)
+
+------
 #Task 1
 Use this prompt to generate files for a Live Bus tracker App.
 ---------
